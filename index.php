@@ -2,6 +2,11 @@
 
 require_once 'School.php';
 require_once 'SchoolClass.php';
+require_once 'Teacher.php';
+
+
+$t = new Teacher(2, "Marni", "F.", "Joensen", null);
+echo $t->__toString();
 
 $s = new School(1, "UCL Seebladsgade", "Seebladsgade 1, 5000 Odense C");
 echo $s->__toString();
