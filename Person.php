@@ -1,7 +1,5 @@
 <?php 
 
-
-
 abstract class Person{
     private int $id;
     private string $firstname;
@@ -61,6 +59,8 @@ abstract class Person{
     }
     
     
+
+
 }
 
 ?>

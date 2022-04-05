@@ -1,4 +1,8 @@
 <?php
+require_once 'Teacher.php';
+require_once 'SchoolClass.php';
+require_once 'Student.php';
+
 
 class School
 {
@@ -7,6 +11,8 @@ class School
     private string $name;
 
     private $schoolclasses = array();
+    private $teachers = array();
+    private $students = array();
 
     function __construct($id, $name, $address)
     {
@@ -27,7 +33,7 @@ class School
         return $this->schoolclasses;
     }
 
-    function addSchoolClass($id, $name)
+    function addSchoolClass($id, $name): int
     {
 
         $rc = -1;
@@ -53,4 +59,68 @@ class School
         }
         return $rc;
     }
+
+    function getTeacher(): array
+    {
+        return $this->teachers;
+    }
+
+    function addTeacher($id, $firstname, $middlename, $lastname, $salary): int
+    {
+
+        $rc = -1;
+        $t = new Teacher($id, $firstname, $middlename, $lastname, $salary);
+        if (!isset($this->teachers[$id])) {
+            $this->teachers[$id] = $t;
+            $rc = 0;
+        } else {
+            echo "This teacher is allready registered\n" . $t->__toString();
+        }
+        return $rc;
+    }
+
+    function removeTeachers($teacher): int
+    {
+        $rc = -1;
+        $id = $teacher->Getid();
+        if (isset($this->teachers[$id])) {
+            unset($this->teachers[$id]);
+            $rc = 0;
+        } else {
+            echo "no teacher with index $id was found\n";
+        }
+        return $rc;
+    }
+    function getStudent(): array
+    {
+        return $this->students;
+    }
+
+    function addStudent($id, $firstname, $middlename, $lastname): int
+    {
+
+        $rc = -1;
+        $s = new Student($id, $firstname, $middlename, $lastname);
+        if (!isset($this->students[$id])) {
+            $this->students[$id] = $s;
+            $rc = 0;
+        } else {
+            echo "This teacher is allready registered\n" . $s->__toString();
+        }
+        return $rc;
+    }
+
+    function removeStudent($student): int
+    {
+        $rc = -1;
+        $id = $student->Getid();
+        if (isset($this->students[$id])) {
+            unset($this->students[$id]);
+            $rc = 0;
+        } else {
+            echo "no teacher with index $id was found\n";
+        }
+        return $rc;
+    }
+
 }
