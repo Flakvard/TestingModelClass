@@ -23,6 +23,22 @@ foreach ($s->getSchoolClasses() as $sc) {
     echo $sc->__toString();
 }
 
+$rc5 = $s->addStudent(2, "Marni", "F.", "Joensen", 500);
+$rc6 = $s->addStudent(2, "Marni", "F.", "Joensen", 500);
+$rc7 = $s->addStudent(3, "Kim", "V.", "Morgensenn", 500);
+
+foreach ($s->getStudent() as $student) {
+    echo $student->__toString();
+}
+
+$students = $s->getStudent();
+$schoolClasses = $s->getSchoolClasses();
+
+$stud = $students[2];
+$sc = $schoolClasses[4];
+$stud->addSchoolClass($sc);
+
+
 $rc5 = $s->addTeacher(2, "Christine", "K", "??", 500);
 $rc6 = $s->addTeacher(2, "Christine", "K", "??", 500);
 $rc7 = $s->addTeacher(1, "Kim", "V.", "Morgensenn", 500);
@@ -52,13 +68,7 @@ foreach ($s->getTeacher() as $t) {
 //     echo $t->__toString();
 // }
 
-// $rc5 = $s->addStudent(2, "Marni", "F.", "Joensen", 500);
-// $rc6 = $s->addStudent(2, "Marni", "F.", "Joensen", 500);
-// $rc7 = $s->addStudent(3, "Kim", "V.", "Morgensenn", 500);
 
-// foreach ($s->getStudent() as $student) {
-//     echo $student->__toString();
-// }
 
 
 // $sc_list = $s->getSchoolClasses();

@@ -16,6 +16,9 @@ abstract class Person{
     }
 
     abstract function __toString():string;
+    abstract function addSchoolClass($schoolClass);
+    abstract function removeSchoolClass($SchoolClass);
+    abstract function Getschoolclasses();
     
     public function getId()
     {

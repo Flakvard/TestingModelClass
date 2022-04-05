@@ -1,5 +1,6 @@
 <?php
 require_once 'Person.php';
+require_once 'SchoolClass.php';
 //interface, er at arve kun methoder og ikke attributes
 class Student extends Person
 {
@@ -22,21 +23,17 @@ class Student extends Person
     }
     function addSchoolClass($schoolclass)
     {
-        if ($this->schoolclass->GetId() == $schoolclass->GetId()) {
-            $this->SchoolClass = $schoolclass;
-        } else {
-            throw new Exception("This schoolclass is already assigned to this student" . $schoolclass->__toString());
-        }
+        $this->schoolclass=$schoolclass;
         return $this;
     }
     function removeSchoolClass($schoolclass)
     {
-        if ($this->schoolclass == $schoolclass)
+        if (!$this->schoolclass == $schoolclass)
         {
             $this->$schoolclass = null;
         }
         else {
-            throw new Exception("This schoolsclass was not assigned for this student\n");
+            throw new Exception("This schoolsclass was not found and not assigned for this student\n");
         }
         return $this;
     }
